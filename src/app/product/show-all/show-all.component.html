@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="btn-group" style="margin-top: 30px">
+    <a routerLink="/create" type="button" class="btn btn-success"><i
+      class="fa fa-plus"></i> Create New</a>
+  </div>
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-6">
+          <h2>{{title}}</h2>
+        </div>
+        <div class="col-sm-6">
+          <div class="search-box">
+            <div class="input-group">
+              <input type="text" id="search" class="form-control" placeholder="Search by Name">
+              <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th style="width: 22%;">Name</th>
+        <th style="width: 22%;">UserName</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody *ngIf="users ;else nothing">
+      <tr *ngFor="let user of users | paginate:{itemsPerPage:20,currentPage:p};let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.email}}</td>
+        <td>
+          <button [routerLink]="['/detail',user.id]" class="btn btn-warning" title="Edit" data-toggle="tooltip"><i
+            class="material-icons">&#xE254;</i></button>
+          <button (click)="Delete(user.id)" class="btn btn-danger" title="Delete"><i class="material-icons">&#xE872;</i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+      <ng-template #nothing>
+        <tbody>
+        <tr class="text-center">
+          <td colspan="10">No data</td>
+        </tr>
+        </tbody>
+      </ng-template>
+    </table>
+    <div class="text-center">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+</div>
+

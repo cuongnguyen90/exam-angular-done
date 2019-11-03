@@ -1,0 +1,25 @@
+<div class="container form-detail">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <form [formGroup]="formCreate" (ngSubmit)="CreateUser()" autocomplete="off">
+        <mat-card-title>{{title}}</mat-card-title>
+        <div class="example-container">
+          <mat-form-field>
+            <input formControlName="name" matInput placeholder="Name" >
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="username" matInput placeholder="User Name" >
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="email" matInput placeholder="Enter your email" >
+          </mat-form-field>
+
+          <div class="col-md-4 text-center">
+            <button type="submit" style="background: dodgerblue;color: #fff" mat-stroked-button>Create </button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
