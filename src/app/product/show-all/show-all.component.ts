@@ -28,7 +28,7 @@ export class ShowAllComponent implements OnInit {
         });
       }
     });
-  }
+  }˚
 
   GetAll() {
     // @ts-ignore

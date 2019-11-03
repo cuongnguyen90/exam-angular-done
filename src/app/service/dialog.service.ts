@@ -12,7 +12,7 @@ export class DialogService {
 
   // tslint:disable-next-line:variable-name
   openConfirm(msg, _title) {
-    return this.dialog.open(ConfirmDailogComponent, {˚
+    return this.dialog.open(ConfirmDailogComponent, {
       width: '390px',
       data: {
         message: msg,

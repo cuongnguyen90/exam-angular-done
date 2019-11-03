@@ -40,5 +40,9 @@ export class ProductService {
     this.toastr.success(mgs);
   }
 
+  public showErrors(mgs: string): void {
+    this.toastr.error(mgs);
+  }
+
 
 }

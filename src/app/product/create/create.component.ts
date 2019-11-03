@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {ProductService} from '../../service/product.service';
 
@@ -10,11 +10,7 @@ import {ProductService} from '../../service/product.service';
 })
 export class CreateComponent implements OnInit {
   title = 'Create new user';
-  formCreate = this.fb.group({
-    name: [''],
-    username: [''],
-    email: ['']
-  });
+  formCreate: FormGroup;
 
   // tslint:disable-next-line:max-line-length
   constructor(private fb: FormBuilder, private route: Router, private userServices: ProductService) {
@@ -22,12 +18,20 @@ export class CreateComponent implements OnInit {
 
   CreateUser() {
     this.userServices.addUser(this.formCreate.value).subscribe((res) => {
-      this.userServices.showSuccess(res.message);
-      return this.route.navigate(['']);
+      if (res.status) {
+        this.userServices.showSuccess(res.message);
+        return this.route.navigate(['']);
+      }
+      this.userServices.showErrors(res.message);
     });
   }
 
   ngOnInit() {
+    this.formCreate = this.fb.group({
+      name: ['', Validators.required],
+      username: ['', Validators.required],
+      email: ['', Validators.required, Validators.email]
+    });
   }
 
 }
