@@ -1,19 +1,20 @@
 <div class="container form-detail">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <form [formGroup]="formUpdate">
-        <mat-card-title>{{title}}</mat-card-title>
+      <form [formGroup]="formUpdate" (ngSubmit)="Update()">
+        <mat-card-title>{{label}}</mat-card-title>
         <div class="example-container">
           <mat-form-field>
-            <input formControlName="name" matInput placeholder="Name">
+            <input formControlName="title" matInput placeholder="Name">
           </mat-form-field>
           <mat-form-field>
-            <input formControlName="username" matInput placeholder="User Name">
+            <input formControlName="author" matInput placeholder="Author name">
           </mat-form-field>
           <mat-form-field>
-            <input formControlName="email" matInput placeholder="Enter your email"  required>
+            <textarea formControlName="description" matInput placeholder="Description"></textarea>
           </mat-form-field>
           <div class="col-md-4 text-center">
+            <a type="button" style="background: #FFC107;text-decoration: none" routerLink="" mat-stroked-button>Back </a>
             <button type="submit" style="background: dodgerblue;color: #fff" mat-stroked-button>Update </button>
           </div>
         </div>

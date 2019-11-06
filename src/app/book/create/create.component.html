@@ -5,17 +5,18 @@
         <mat-card-title>{{title}}</mat-card-title>
         <div class="example-container">
           <mat-form-field>
-            <input formControlName="name" matInput placeholder="Name" >
+            <input formControlName="title" matInput placeholder="Name">
           </mat-form-field>
           <mat-form-field>
-            <input formControlName="username" matInput placeholder="User Name" >
+            <input formControlName="author" matInput placeholder="Author">
           </mat-form-field>
           <mat-form-field>
-            <input formControlName="email" matInput placeholder="Enter your email" >
+            <textarea formControlName="description" matInput placeholder="Description"></textarea>
           </mat-form-field>
 
           <div class="col-md-4 text-center">
-            <button type="submit" mat-stroked-button >Create </button>
+            <a type="button" style="background: #FFC107;text-decoration: none" routerLink="" mat-stroked-button>Back </a>
+            <button type="submit" mat-stroked-button [disabled]="!formCreate.valid">Create</button>
           </div>
 
         </div>

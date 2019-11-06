@@ -11,12 +11,13 @@ export class DialogService {
   }
 
   // tslint:disable-next-line:variable-name
-  openConfirm(msg, _title) {
+  openConfirm(msg, _title, _book: object) {
     return this.dialog.open(ConfirmDailogComponent, {
-      width: '390px',
+      width: '590px',
       data: {
         message: msg,
         title: _title,
+        book: _book
       }
     });
   }

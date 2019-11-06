@@ -12,6 +12,7 @@ export class ConfirmDailogComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.data);
   }
 
 }

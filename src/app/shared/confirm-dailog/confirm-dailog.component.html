@@ -1,8 +1,19 @@
-<h2 mat-dialog-title>{{data.title}}</h2>
-<mat-dialog-content>{{data.message}}</mat-dialog-content>
-<mat-dialog-actions center="true">
-  <div style="margin: auto">
-    <button mat-button [mat-dialog-close]="false">No</button>
-    <button  mat-button [mat-dialog-close]="true">Yes</button>
-  </div>
-</mat-dialog-actions>
+<div class="content-confirm">
+  <h2 mat-dialog-title  style="color: red">{{data.title}}</h2>
+  <mat-dialog-content>
+    <h2>{{data.message}}</h2>
+    <mat-list>
+      <mat-list-item>Name : {{data.book.title}}</mat-list-item>
+      <mat-list-item>Author: {{data.book.author}}</mat-list-item>
+      <mat-list-item>Desc : {{data.book.description}}
+      </mat-list-item>
+    </mat-list>
+  </mat-dialog-content>
+  <mat-dialog-actions center="true">
+    <div style="margin: auto">
+      <button mat-button [mat-dialog-close]="false">No</button>
+      <button mat-button [mat-dialog-close]="true">Yes</button>
+    </div>
+  </mat-dialog-actions>
+
+</div>
